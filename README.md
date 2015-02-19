@@ -15,11 +15,12 @@ Enjoy!
 Testing the JavaScript methods can be done via spec/spec-runner.html in the browser.
 
 ##Known Bugs
-As of latest commit: None
+* Will make duplicate identical tickets, rather than just updating the displayed quantity.
+* Cannot delete or change existing tickets.
 
 ##Motivation
 
-To practice creating and using JS prototypes with jQuery.
+To practice creating and using JS prototypes with jQuery, and practice using bootstrap more extensively.
 
 ##License
 
