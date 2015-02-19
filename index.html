@@ -3,6 +3,7 @@
   <head>
     <link href="css/bootstrap.css" rel="stylesheet" type="text/css">
     <link href="css/styles.css" rel="stylesheet" type="text/css">
+    <!-- <link href="css/more-styles.css" rel="stylesheet" type="text/css"> -->
     <script src="js/jquery-1.11.2.js"></script>
     <script src="js/scripts.js"></script>
     <title>Tickets, please!</title>
@@ -10,21 +11,56 @@
   <body>
     <div class="container">
       <h1>Tickets, please!</h1>
-      <hr>
 
-      <div class="col-md-3" id="now-playing">
+      <div class="col-md-12 blr" id="now-playing">
         <h2>Now Playing</h2>
-        <ul>
+        <ul class="list-unstyled">
+
+          <li class="movie-poster-title">
+            <div class="poster-frame"><img class="poster" src="img/panslabyrinthposter01.jpg" alt="Pan's Labyrinth showtimes and tickets"></div>
+            <span class="title">Pan's Labyrinth</span>
+            <span class="sub-title"></span>
+          </li>
+
+          <li class="movie-poster-title">
+            <div class="poster-frame"><img class="poster" src="img/thethingposter01.jpg" alt="The Thing showtimes and tickets"></div>
+            <span class="title">The Thing</span>
+            <span class="sub-title">(John Carpenter's)</span>
+          </li>
+
+          <li class="movie-poster-title">
+            <div class="poster-frame"><img class="poster" src="img/aliensposter01.jpg" alt="Aliens showtimes and tickets"></div>
+            <span class="title">Aliens</span>
+            <span class="sub-title"></span>
+          </li>
+
+          <li class="movie-poster-title">
+            <div class="poster-frame"><img class="poster" src="img/bladerunnerposter01.jpg" alt="Blade Runner showtimes and tickets"></div>
+            <span class="title">Blade Runner</span>
+            <span class="sub-title">(Director's Cut)</span>
+          </li>
+
+          <li class="movie-poster-title">
+            <div class="poster-frame"><img class="poster" src="img/enemymineposter01.jpg" alt="Enemy Mine showtimes and tickets"></div>
+            <span class="title">Enemy Mine</span>
+            <span class="sub-title"></span>
+          </li>
+
+          <li class="movie-poster-title">
+            <div class="poster-frame"><img class="poster" src="img/jacobsladderposter01.jpg" alt="Jacob's Ladder showtimes and tickets"></div>
+            <span class="title">Jacob's Ladder</span>
+            <span class="sub-title"></span>
+          </li>
 
         </ul>
       </div>
 
-      <div class="col-md-3 blr" id="showtimes">
+      <div class="col-md-4 blr" id="showtimes">
         <h2>Showtimes</h2>
 
       </div>
 
-      <div class="col-md-3 blr" id="number-of-tickets">
+      <div class="col-md-4 blr" id="number-of-tickets">
         <h2>Tickets</h2>
         <form id="tickets">
 
@@ -32,7 +68,7 @@
 
       </div>
 
-      <div class="col-md-3 blr" id="total">
+      <div class="col-md-4 blr" id="total">
         <h2>Total</h2>
 
       </div>

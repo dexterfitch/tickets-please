@@ -1,0 +1,48 @@
+h1 {
+  text-align: center;
+  font-size: 4em;
+}
+
+ul {
+  display: inline;
+}
+
+.blr {
+  border: 1px solid #DDD;
+}
+
+.movie-poster-title {
+  text-align:center;
+  width:127px;
+  min-height:254px;
+  overflow:hidden;
+  float: left;
+  list-style: none;
+  position: relative;
+  margin: 1em;
+}
+
+.poster {
+  width: 125px;
+  height: relative;
+}
+
+.poster-frame {
+  width: 127px;
+  height: 200px;
+}
+
+.title {
+  font-size:20px;
+  line-height:18px;
+  max-height:36px;
+  white-space:normal;
+}
+
+.sub-title {
+  font-size:14px;
+  line-height:12px;
+  max-height:30px;
+  white-space:normal;
+  opacity: 0.8;
+}
