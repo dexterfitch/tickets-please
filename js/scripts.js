@@ -1,55 +1,84 @@
-var BankAccount = {
-  balance: 0,
-  deposit: function(amount) {
-    this.balance += amount;
-  },
-  withdraw: function(amount) {
-    this.balance -= amount;
+var MovieTicket = {
+  total: 0,
+  matinee: false,
+
+  priceCalc: function(type, quantity) {
+
+    if (type === "adult") {
+      this.total += quantity * 10;
+    } else if (type === "child") {
+      this.total += quantity * 6;
+    } else if (type === "special") {
+      this.total += quantity * 8;
+    }
+
+    if (this.matinee === true) {
+      this.total -= quantity * 3.5;
+    }
   }
 };
 
 $(document).ready(function() {
-  var newAccount = Object.create(BankAccount);
+  var newTransaction = Object.create(MovieTicket);
 
-  $("form#new-account").submit(function(event) {
-    event.preventDefault();
-
-    var inputName = $("input#name").val();
-    var initialDeposit = parseInt($("input#initial-deposit").val())
-
-    newAccount.name = inputName;
-    newAccount.deposit(initialDeposit);
-
-    $("#customer-name").append(newAccount.name + "'s ");
-    $("h3#balance").append("$" + newAccount.balance);
-
-    $("input#name").val("");
-    $("input#initial-deposit").val("")
-
-    $("h3#balance").show();
-
+  $('.zoom').hover(function() {
+    $(this).addClass('transition');
+  }, function() {
+    $(this).removeClass('transition');
   });
 
-  $("form#account-interact").submit(function(event) {
+  $('.text-zoom').hover(function() {
+    $(this).addClass('transition');
+  }, function() {
+    $(this).removeClass('transition');
+  });
+
+  $(".set1").click(function() {
+    $("h3#notification").hide();
+    $(".time-set-2").hide();
+    $(".time-set-1").show();
+  });
+
+  $(".set2").click(function() {
+    $("h3#notification").hide();
+    $(".time-set-1").hide();
+    $(".time-set-2").show();
+  });
+
+  $(".matinee").click(function() {
+    newTransaction.matinee = true;
+  });
+
+  $(".showtime").click(function() {
+    newTransaction.showTime = $(this).text();
+  });
+
+  $(".movie-poster-title").click(function() {
+    newTransaction.movieName = $(this).children(".title").text();
+  });
+
+  $("form#tickets").submit(function(event) {
     event.preventDefault();
 
-    $("h3#balance").text("");
+    var ticketType = $("select#ticket-type option:selected").val();
+    var ticketTypeText = $("select#ticket-type option:selected").text();
+    var ticketQuantity = parseInt($("#quantity").val());
 
-    var depositAmount = parseInt($("input#deposit").val());
-    var withdrawAmount = parseInt($("input#withdraw").val());
-
-    if (depositAmount >= 0) {
-      newAccount.deposit(depositAmount);
-    } else if (withdrawAmount >= 0) {
-      newAccount.withdraw(withdrawAmount);
+    if ((newTransaction.showTime === undefined) || (newTransaction.movieName === undefined) || isNaN(ticketQuantity)) {
+      alert("Please choose a movie, showtime, and quantity of tickets.");
     } else {
-      alert("You must enter a value.")
+      $("#total").text("");
+      newTransaction.priceCalc(ticketType, ticketQuantity);
+      $("#total").append("$" + newTransaction.total);
+      $("#tickets-list").append("<li>" + newTransaction.showTime + ", " + newTransaction.movieName + " - " + ticketTypeText + " (" + ticketQuantity + ")" + "</li>");
     }
 
-    $("h3#balance").append("$" + newAccount.balance);
+    $("quantity").val("");
+    $("h3#notification").show();
+    $(".time-set-1").hide();
+    $(".time-set-2").hide();
+    newTransaction.movieName = undefined;
+    newTransaction.showTime = undefined;
 
-    $("input#withdraw").val("");
-    $("input#deposit").val("")
-
-  })
+  });
 });
